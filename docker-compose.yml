@@ -29,7 +29,7 @@ services:
       -maxuploadtarget=5000
   electrs:
     container_name: electrs
-    image: vulpemventures/electrs:latest
+    image: tiero/electrs
     restart: unless-stopped
     networks:
       local:

@@ -4,6 +4,7 @@ services:
   bitcoin:
     container_name: bitcoin
     image: tiero/bitcoin-core
+    restart: unless-stopped
     networks:
       local:
         ipv4_address: 10.10.0.10
@@ -29,6 +30,7 @@ services:
   electrs:
     container_name: electrs
     image: vulpemventures/electrs:latest
+    restart: unless-stopped
     networks:
       local:
         ipv4_address: 10.10.0.11
@@ -55,6 +57,7 @@ services:
       - 0.0.0.0:50001
       - --cors
       - "*"
+      
 
 networks:
   local:

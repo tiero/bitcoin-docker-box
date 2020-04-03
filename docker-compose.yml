@@ -11,12 +11,10 @@ services:
     volumes:
       - ${BITCOIN_VOLUME}:/home/bitcoin/.bitcoin
     ports:
-      - 18443:18443
       - 8332:8332
       - 8333:8333
     command:
       -printtoconsole
-      -regtest=1
       -server=1
       -daemon=0
       -txindex=1
@@ -46,8 +44,6 @@ services:
       - 50001:50001
     command:
       - -vvvv
-      - --network
-      - regtest
       - --index-batch-size
       - "10"
       - --db-dir
@@ -55,7 +51,7 @@ services:
       - --daemon-dir
       - /bitcoin
       - --daemon-rpc-addr
-      - 10.10.0.10:18443
+      - 10.10.0.10:8332
       - --cookie
       - ${BITCOIN_RPC_USER}:${BITCOIN_RPC_PASSWORD}
       - --http-addr
